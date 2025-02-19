@@ -1,17 +1,25 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import React from "react";
 
-import Navbar from "./components/Navbar";
-import HomePage from "./pages/HomePage";
-import SignUpPage from "./pages/SignUpPage";
-import LoginPage from "./pages/LoginPage";
-import SettingsPage from "./pages/SettingsPage";
-import ProfilePage from "./pages/ProfilePage";
+//import Navbar from "./components/Navbar";
+//import HomePage from "./pages/HomePage";
+//import SignUpPage from "./pages/SignUpPage";
+//import LoginPage from "./pages/LoginPage";
+//import SettingsPage from "./pages/SettingsPage";
+//import ProfilePage from "./pages/ProfilePage";
 
 import { useAuthStore } from "./store/useAuthStore";
 import { useThemeStore } from "./store/useThemeStore";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
+
+const Navbar = React.lazy(() => import("./components/Navbar"));
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const SignUpPage = React.lazy(() => import("./pages/SignUpPage"));
+const LoginPage = React.lazy(() => import("./pages/LoginPage"));
+const SettingsPage = React.lazy(() => import("./pages/SettingsPage"));
+const ProfilePage = React.lazy(() => import("./pages/ProfilePage"));
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
